@@ -355,7 +355,8 @@ document.getElementById('gradeForm').addEventListener('submit', function(event) 
         gradeList += '</ul>';
 
         if (hasBonus) {
-            gradeList += '<p>Your paper was really great, so you got 5 bonus points. Thank you!</p>';
+            gradeList += '<p>Your paper was really great, so you got 5 bonus points.</p>';
+            gradeList += '<p>Thank you!</p>';
         }
 
         let grade = grades[studentID][0];
@@ -365,16 +366,17 @@ document.getElementById('gradeForm').addEventListener('submit', function(event) 
 
         if (noGradeIDs.includes(studentID)) {
             // No grade recorded: no remake for Quiz 1
-            gradeList += '<p>No grade was recorded for you in Quiz 1. There is no remake for Quiz 1, ' +
-                         'so you will have to take Quiz 2. Good luck, Insha\'Allah!</p>';
+            gradeList += '<p>No grade was recorded for you in Quiz 1.</p>';
+            gradeList += '<p>There is no remake for Quiz 1, so you will have to take Quiz 2.</p>';
         } else if (typeof grade === 'number' && grade <= LOW_GRADE_LIMIT) {
             // Low grade (0 to 5): contact the TA
             gradeList += '<p>If there is anything you did not understand in the course, please contact your TA at ' +
-                         '<a href="mailto:' + taEmail + '">' + taEmail + '</a>. ' +
-                         'If this grade discouraged you, please study the material well for the midterm and the final exams.</p>';
-        } else {
-            gradeList += '<p>Good luck!</p>';
+                         '<a href="mailto:' + taEmail + '">' + taEmail + '</a>.</p>';
+            gradeList += '<p>If this grade discouraged you, please study the material well for the final exam.</p>';
         }
+
+        // Always on its own line
+        gradeList += "<p>Good luck, Insha'Allah!</p>";
         gradeDisplay.innerHTML = gradeList;
 
     } else {
