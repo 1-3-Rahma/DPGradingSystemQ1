@@ -372,7 +372,6 @@ document.getElementById('gradeForm').addEventListener('submit', function(event) 
             // Low grade (0 to 5): contact the TA
             gradeList += '<p>If there is anything you did not understand in the course, please contact your TA at ' +
                          '<a href="mailto:' + taEmail + '">' + taEmail + '</a>.</p>';
-            gradeList += '<p>If this grade discouraged you, please study the material well for the final exam.</p>';
         }
 
         // Always on its own line
